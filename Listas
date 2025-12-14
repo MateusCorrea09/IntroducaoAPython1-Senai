@@ -1,0 +1,32 @@
+#Listas assim como tuplas são guardam variaveis compostas que armazenam valores.
+#TUPLAS 'imutaveis' LISTAS '´podem ser modificadas'
+# em uma LISTA quando eu quiser adicionar um elemeno no final da lista eu posso usar o comando 'append()'
+lanches = ('X-burguer','Batata','Refrigerante')
+lanches.append('Biscoito') #logo após isso a lista lanches recebera um novo item no final -> lanches = ('X-burguer','Batata','Refrigerante','Biscoito')
+#tambem é possível inserir um novo item no início da lista, para isso usamos o comando 'insert(Nº da posição + , + Conteúdo)'
+lanches.insert(0,'Bolo') # lanches = ('Bolo','X-burguer','Batata','Refrigerante','Biscoito'), uma coisa a ter em mente quando usar o insert é que o python
+                         # vai arrastar todos os itens uma casa a diante para colocar um novo elemento dentro da lista 'lanches'... dessa forma o 'biscoito'
+                         #que eprtencia a posição 3 da lista lanches agora pertence a posição 4.
+#uma prática comum é a de remoção de um item dentro de uma lista, e para isso suamos o "pop(nº da posição a ser removida)"
+lanches.pop(3) # agora en diante a lista lanches é lanches = ('Bolo','X-burguer','Batata','Biscoito') removendo 'refrigerante' e biscoito pula uma casa para
+               #agora bisoito deixou de estar na posição 4 e voltou para posição 3.
+#É possível ser mais direto e remover algo específico dentro de uma lista quando se sabe esatamente oq está dentro dela, usando o comando 'remove(conteúdo a ser removido)'
+lanches.remove('X-burguer') # agora a lista lanches passa a ser lanches = ('Bolo','Batata','Biscoito') com uma nova reorganização das posições depois de 'X-burguer' pulando
+                            # uma casa para trás.
+# em um exercício de verificação, você pode conferir se um determinado item está presente dentor de uma lista antes de realizar uma remoção
+#usando o if + in você pode verificar se um determinado item pode ser removido se estiver dentro da lista
+if 'refrigerante' in lanches:
+  lanches.remove('refrigerante')
+#dessa forma você previne um erro de tentar remover um determinado item que não está na lista, menos um erro :D
+# se você desejar você também pode criar uma lista usando o conceito de 'RANGE' estudado anteriormente na sessão de FOR, da seguinte forma
+numeros = list.range(4,11) #Dessa forma será criado uma lista chamada 'numeros' e nela serão anexados os números de 4 até 11 (4,5,6,7,8,9,10), seria um
+                          #cont = 4; cont < 11; numeros.add(cont)... então ele para no 11
+#Também é possível passar um terceiuro número como parâmetro dentro de range
+numeros = list.range(4,11,2) # dessa forma serão adicionados números entre 4 até 11 sempre pulando 2 números!
+#Em determinadas situações você encontrará vetores numéricos desordenados, então use o comando 'sort()' para ordenar eles
+numeros = (3,5,0,33,11,67)
+numeros.sort() #agora a lista numérica 'numeros' terá (0,3,5,11,33 e 67) a ordenando do mais baixo ao mais alto
+# você também pode desejar colocar essa mesma lista no onverso, então use 'sort(reverse = True)'
+numeros.sort(reverse = True) #E agora a lista é (67,33,11,5,3, e 0)
+#é possível também descobrir o número de elementos dentro de uma lista usando o comando 'len'
+len(numeros) # retornando um inteiro referente ao número de elementos dentro da lista 'números' que seria 6.
