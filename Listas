@@ -30,3 +30,56 @@ numeros.sort() #agora a lista numérica 'numeros' terá (0,3,5,11,33 e 67) a ord
 numeros.sort(reverse = True) #E agora a lista é (67,33,11,5,3, e 0)
 #é possível também descobrir o número de elementos dentro de uma lista usando o comando 'len'
 len(numeros) # retornando um inteiro referente ao número de elementos dentro da lista 'números' que seria 6.
+
+
+num = [2,5,9,1]
+num[2] = 3 # alterando um valor dentro da lista passando como argumento a posição
+print(num) #print esperado [2, 5, 3, 1]
+num.append(7) #usando o append para adiconar um novo item no final da lista
+print(num) #print esperado [2, 5, 3, 1, 7]
+num.sort() #usando o sort para alteara a posição dos itens do menor apra o maior
+print(num) # print esperado [1, 2, 3, 5, 7]
+num.sort(reverse = True) #Alterando as posições da lista do maior para o menor
+print(num)# print esperado [7, 5, 3, 2, 1]
+#usando o len() para dizer quantos elementos uma lista possui
+print(f'Essa lista possui um numero de elemtnos igual a {len(num)}') 
+num.insert(2,0) # usando o inset para adicionar um novo elemento na lista
+                #pasando como argumento a posição que esse elemento vai
+                #ser adicionado e qual o determinado elemento. todos os elementos
+                #serão movidos uma casa para frente
+print(num) #pint esperado [7, 5, 0, 3, 2, 1]
+# em uma lista que possui um item duplicado o método removedor de items 'pop' ou 'remove'
+#só remove o primeiro item que eprtence ao argumento que está sendo utilizado apra remover
+#o elemento dentro da lista.
+num.insert(2,2)# adicionando um elemento '2' no indice '2' e todos os itens uma casa para frente
+print(num) #print espeado [7, 5, 2, 0, 3, 2, 1]
+num.remove(2) # aki eu estou dizendo, vá até a lista num e remova o 'conteúdo' '2'...
+              #como exatamente ele sabe quantos '2' exitem? ou ele removerá todos?
+print(num) # aki demonstra que ele remove apenas o primeiro item da lista que ele encontrar
+           #e que tenha igualdade em relação ao argumento que foi recebido (no caso foi o '2')
+           #para remover todos os elementos iguais ao argumento passado, terá que usar um laço
+           #de repertição.
+#como forma de evitar erros é possível utilizar uma união de if + in para checar se um determinado
+#elemento está presente na lista, dessa forma evitando o erro.
+if 11 in num:
+    num.remove(11)
+else:
+    print('na lista {num} não hpa nenhum elemento igual a "11" !')
+# você pode escolher lincar duas listas de forma a uma ser igual a outra
+a = [1,2,3,4,5] #lista 'a' recebe varios elementos
+b = a #lista b recebe todos os elementos presentes em a, e se torna não uma cópia mas sim uma gêmea
+print(a) #print esperado [1,2,3,4,5]
+print(b) #print esperado [1,2,3,4,5]
+# Se tentarmos mudar algo la lista b, a lista há será modificada da mesma forma, porque são gêmeas
+b[2] = 11
+print(a) #print esperado [1, 2, 3, 4, 5]
+print(b) #print esperado [1, 2, 11, 4, 5]
+#mas o que acontece é 
+#[1,2,3,4,5]
+#[1,2,3,4,5]
+# a maneira correta de criar uma 'Cópia' de uma lista é usar '[:]
+a = [1,2,3,4,5]
+b = a[:] # lista 'b' recebe uma cópia de 'a'
+b[2] = 11 #troque o elemento do índice 2 por 11
+print(a)#print esperado [1, 2, 3, 4, 5]
+print(b)#print esperado [1, 2, 11, 4, 5]
