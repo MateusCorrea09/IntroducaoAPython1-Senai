@@ -1,0 +1,66 @@
+
+#2.1.5   LAB   Trabalhando com a função print()
+#para ecibir uma mensagem na tela usamos o comando 'print()'
+print('Hello World') #para exibir uma mensagem simples
+print('2+2 = ', 2 + 2) # podemos exibir resultados aritméticos também
+# precisamos usar ',' para conseguir separar os termos e o python entender a separação
+#Argumentos de palavra chave 
+#podemos usar o comando 'sep' para trocar o resultado do uso da ',' no print
+print('agora o , significa [','] viu ?', sep = '9') # o uso da ',' resulta em um numero
+# do mesmo jeito podemos usar o end como forma de dizer que ele não representa mais
+#uma quebra de linha
+print('O end anteriormente representa uma quabra de linha, mas', end =' ') #o end agora representa um espaço
+print('ele representa apenas um espaço')                                   #não mais uma quebra de linha
+
+#2.1.12   LAB   A função print() e seus argumentos
+#saída esperada "Programação***Essenciais***em...Python"
+print('programação','essenciais','em',sep ="***",end = "...")
+print('Python')
+
+#2.2.6   LAB   Literais Python - strings
+print('\'Eu sou\'\n\'\'aprendizado\'\'\n\'\'\'Python\'\'\'')
+
+#2.4.7   LAB   Variáveis
+john = 1
+mary = 4
+adam = 2
+total_apple = john + mary + adam
+print('Totla de maças é:', total_apple)
+print('O total de maçãs menos a do adam é:', total_apple - adam)
+print('mary tem:', mary,'maçãs')
+print('john tem:', john,'maçãs')
+print('adam tem:', mary,'maçãs')
+print('mary e adam tem', mary + adam,'maçãs')
+
+#2.4.10   LAB   Operadores e Expressões
+x = 3
+y = 3 * x**3 + 2*x**2 - 1 #para exponenciação usamod '**'
+print(y)                  #logo depois de argumento
+
+x = 0 
+y = 3 * x**3 + 2*x**2 - 1
+print(y)
+
+x = 1
+y = 3 * x**3 + 2*x**2 - 1
+print(y)
+
+#2.6.9   LAB   Simples entradas e saídas
+nome = input('entre com seu nome:')#Dessa forma o input sempre retorna uma
+print(nome)                       #ums string
+#para obter uma elemento que não seja uma string use um convertor
+idade = int(input('entre com sua idade:'))
+print(idade) #agora 'idade' armazena um inteiro ao invés de uma string
+peso = float(input('entre com seu peso:'))
+print(peso)
+a = float(input('entre com o valor de A:'))
+b = float(input('entre com o valor de B:'))
+print('A+b',a + b)
+print('A-b',a - b)
+print('B-A',b - a)
+print('A*b',a * b)
+if(a == 0 or b ==0):
+    print('alguma entrada é 0, impoissivel realziar divisão')
+else:
+    print('a/b', a/b)
+    print('b/a', b/a)
