@@ -1,0 +1,63 @@
+#É através dos opradores que conseguimos expressar toda lógica e inteligência de um software, os operadores relacionais
+#são usados para comparar valores, e os lógicos são para retornos de booleans
+#os relacionais comparam valores retornando verdadeiro ou falso
+a = 10
+b = 20
+print(a == b)# nesse exemplo o retorno vai ser False, é como se o '==' perguntasse se a possuí
+             #o mesmo valor que b
+print(a != b)# nesse exemplo o retorno vai ser True, o '!=' verifica ser o conta se o conteúdo
+             #de a é diferente de b
+print(a > b)# retorna um False quando usamos o ' > '
+print(a < b)# retorna um True quando usamos o ' < '
+#diferente dos dois ultimos exemplos acima há duas variações que também consideram
+#a possibilidade do valor ser ao menos igual ao outro
+print(a >= b)# retornando um false
+print(a <= b)# retornando um True
+
+#nós utilziamos operadores lógicos quando queremos usar valores boleanos
+a = True
+b = False
+print(a and b) # retorno esperado 'False', ambos precisam ser 'True' para o
+               #'True' aparecer na tela
+print(a or b) #usando o 'ou' um dos dois lados precisão ser verdadeiros
+              #para um 'True' aparecer na tela
+print(not(a and b))# inverte o resutlado da expressão, já vimos na expressão
+                   #acima que 'a and b' retorna 'False' mas com o uso do 'not'
+                   #o resultado será o inverso
+#Exercício 1 – Comparação de números
+#Crie um programa que:
+#Leia dois números inteiros.
+#Verifique e imprima:
+#Se o primeiro número é igual ao segundo.
+#Se o primeiro é maior que o segundo.
+#Se o primeiro é menor ou igual ao segundo.
+a = 3
+b = 2
+if (a == b):
+    print('Os números são iguais?', a == b)
+if (a != b):
+    print('Os números são iguais?', a != b)
+if (a > b):
+    print('O primeiro é maior que o segundo?', a > b)
+if (a <= b):
+    print('O primeiro é menor ou igual ao que o segundo?', a >= b)
+
+#Exercício 2 – Validação de acesso
+#Objetivo: usar operadores relacionais + lógicos.
+#Crie um programa que:
+#Leia a idade de uma pessoa.
+#Leia se ela possui autorização (True ou False).
+#A pessoa só poderá acessar o sistema se:
+#A idade for maior ou igual a 18 E Possuir autorização.
+nome = input('entre com seu nome: ')
+idade = int(input('entre com sua idade: '))
+autoriza = int(input('possuí a autorização?\n1- Sim\n0- Não'))
+autorizacao = False
+if(idade >= 18):
+    autorizacao = True
+else:
+    autorizacao = False
+if(idade >= 18 and autoriza == True):
+    print(f'{nome}:\nidade [{idade}] e autorização [{autorizacao}], Bem-vindo ao sistema! :D')
+else:
+    print(f'{nome}:\nidade [{idade}] e autorização [{autorizacao}], Acesso negado! :D')
