@@ -2,19 +2,9 @@
 #e colocar na grade, checar se a posição já está preenchida (se estiver deve ser perguntado novamente)
 #depois de uma jogada realizada pelo usuário o pc deve esoclher uma posição vaga para ser preenchida
 #após cada jogada deve ser checado se há uma conexão de 3 valores (use as combinações possíveis)
-
-repositório_jogadas = [[1,2,3],[4,'x',6],[7,8,9]] #aqui eu guardo as entradas realizadas
+import os #biblioteca para limpar o terminal
+repositório_jogadas = [[1,2,3],[4,5,6],[7,8,9]] #aqui eu guardo as entradas realizadas
 #(pos[1],pos[2],pos[3],pos[4],pos[5],pos[6],pos[7],pos[8],pos[9])
-#def imprimir_grade_3x3(c1, c2, c3, c4, c5, c6, c7, c8, c9):
-    # Linha de separação horizontal
-#    separador = "+---+---+---+"
-#    print(separador)
-#    print(f'| {c1} | {c2} | {c3} |')
-#    print(separador)
-#    print(f'| {c4} | {c5} | {c6} |')
-#    print(separador)
-#    print(f'| {c7} | {c8} | {c9} |')
-#    print(separador)
 def imprimir_grade_3x3(pos):
     # Linha de separação horizontal
     separador = "+---+---+---+"
@@ -25,30 +15,91 @@ def imprimir_grade_3x3(pos):
     print(separador)
     print(f'| {pos[6]} | {pos[7]} | {pos[8]} |')
     print(separador)
-# Assumindo que REPOSITORIO_JOGADAS seja sua variável global
-# Exemplo: REPOSITORIO_JOGADAS = [[1, 2, 3], [4, 'X', 6], [7, 8, 9]]
-
 def print_grade(matrix_das_jogadas):
     quadro_de_numeros = []
     for linha in matrix_das_jogadas: 
         for elemento in linha: 
             quadro_de_numeros.append(elemento) 
     imprimir_grade_3x3(quadro_de_numeros) 
-
-def validador_de_jogada():
-    print('votoria')
+def validador_de_jogada(matrix_das_jogadas):
+    #print('votoria')
     # ele pega e checa se essa posição está preenchida e retorna um True
     #Esse método vai receber um inteiro e tenho que levar em consideração que para acessar uma matriz
     #eu preciso de dois inteiros, logo posso pensar que 1,4 e 7 são da coluna 1... enquanto 1, e 3 são da linha 1...
-
-def validador_de_VITORIA():         #esse tem que retornar um True se é uma vitoria... porqeu ai eu troco o jogo pra True
-    pass                            #Eu tenho que checar linha por linha, coluna por coluna e por final as duas diagonais
+    ##vertical
+    if matrix_das_jogadas[0][0] and matrix_das_jogadas[0][1] and matrix_das_jogadas[0][2] == 'x':
+        return True
+    elif matrix_das_jogadas[0][0] and matrix_das_jogadas[0][1] and matrix_das_jogadas[0][2] == 'o':
+        return True
+    ##
+    elif matrix_das_jogadas[1][0] and matrix_das_jogadas[1][1] and matrix_das_jogadas[1][2] == 'x':
+        return True
+    elif matrix_das_jogadas[1][0] and matrix_das_jogadas[1][1] and matrix_das_jogadas[1][2] == 'o':
+        return True
+    ##
+    elif matrix_das_jogadas[2][0] and matrix_das_jogadas[2][1] and matrix_das_jogadas[2][2] == 'x':
+        return True
+    elif matrix_das_jogadas[2][0] and matrix_das_jogadas[2][1] and matrix_das_jogadas[2][2] == 'o':
+        return True
+    ##
+    ##horizontal
+    if matrix_das_jogadas[0][0] and matrix_das_jogadas[1][0] and matrix_das_jogadas[2][0] == 'x':
+        return True
+    elif matrix_das_jogadas[2][0] and matrix_das_jogadas[2][0] and matrix_das_jogadas[2][0] == 'o':
+        return True
+    ##
+    elif matrix_das_jogadas[0][1] and matrix_das_jogadas[1][1] and matrix_das_jogadas[2][1] == 'x':
+        return True
+    elif matrix_das_jogadas[0][1] and matrix_das_jogadas[1][1] and matrix_das_jogadas[2][1] == 'o':
+        return True
+    ##
+    elif matrix_das_jogadas[0][2] and matrix_das_jogadas[1][2] and matrix_das_jogadas[2][2] == 'x':
+        return True
+    elif matrix_das_jogadas[0][2] and matrix_das_jogadas[1][2] and matrix_das_jogadas[2][2] == 'o':
+        return True
+    ##fim horizontal
+       ##verticais
+    elif repositório_jogadas[0][2] and repositório_jogadas[1][1] and repositório_jogadas[2][0] == 'x':
+        return True
+    elif repositório_jogadas[0][2] and repositório_jogadas[1][1] and repositório_jogadas[2][0] == 'o':
+        return True
+    ##
+    elif repositório_jogadas[0][0] and repositório_jogadas[1][1] and repositório_jogadas[2][2] == 'x':
+        return True
+    elif repositório_jogadas[0][0] and repositório_jogadas[1][1] and repositório_jogadas[2][2] == 'o':
+        return True
+    else:
+        return False
+def entradas_no_grid(entrada_jogador):
+    if entrada_jogador >= 1 or entrada_jogador <= 3:
+        entrada_jogador = entrada_jogador - 1
+        repositório_jogadas[entrada_jogador][0] = 'o'
+    if entrada_jogador >= 4 or entrada_jogador <= 6:
+        entrada_jogador = entrada_jogador - 1
+        repositório_jogadas[entrada_jogador][1] = 'o'
+    if entrada_jogador >= 7 or entrada_jogador <= 9:
+        entrada_jogador = entrada_jogador - 1
+        repositório_jogadas[entrada_jogador][2] = 'o'
+def mensagem_vitoria():         #esse tem que retornar um True se é uma vitoria... porqeu ai eu troco o jogo pra True
+    print('parabens!')          #Eu tenho que checar linha por linha, coluna por coluna e por final as duas diagonais
 
 #main():
 print_grade(repositório_jogadas)
-#jogo = True
-#while jogo == True:
-
-#    jogada = int(input('entre com um Número a ser preenchido no quadro'))
-
-
+print(validador_de_jogada(repositório_jogadas))
+jogo = True
+while jogo == True:
+    print_grade(repositório_jogadas)
+    numero = int(input('Jogador! entre com um número disponivel: '))
+    if numero > 0 and numero <=9:
+        for i in repositório_jogadas:
+            for j in repositório_jogadas:
+                if j != 'o' and j != 'x':
+                    repositório_jogadas(entradas_no_grid(numero))
+                else:
+                    print('entre com uma alternativa válida!\n')
+                    continue
+    else:
+        print('entre com uma alternativa válida!\n')
+        continue
+   
+   
