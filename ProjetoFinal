@@ -1,0 +1,54 @@
+# eu tenho que pegar o numero da entrada que tem que ser um inteiro maior menor ou igual a 9
+#e colocar na grade, checar se a posição já está preenchida (se estiver deve ser perguntado novamente)
+#depois de uma jogada realizada pelo usuário o pc deve esoclher uma posição vaga para ser preenchida
+#após cada jogada deve ser checado se há uma conexão de 3 valores (use as combinações possíveis)
+
+repositório_jogadas = [[1,2,3],[4,'x',6],[7,8,9]] #aqui eu guardo as entradas realizadas
+#(pos[1],pos[2],pos[3],pos[4],pos[5],pos[6],pos[7],pos[8],pos[9])
+#def imprimir_grade_3x3(c1, c2, c3, c4, c5, c6, c7, c8, c9):
+    # Linha de separação horizontal
+#    separador = "+---+---+---+"
+#    print(separador)
+#    print(f'| {c1} | {c2} | {c3} |')
+#    print(separador)
+#    print(f'| {c4} | {c5} | {c6} |')
+#    print(separador)
+#    print(f'| {c7} | {c8} | {c9} |')
+#    print(separador)
+def imprimir_grade_3x3(pos):
+    # Linha de separação horizontal
+    separador = "+---+---+---+"
+    print(separador)
+    print(f'| {pos[0]} | {pos[1]} | {pos[2]} |')
+    print(separador)
+    print(f'| {pos[3]} | {pos[4]} | {pos[5]} |')
+    print(separador)
+    print(f'| {pos[6]} | {pos[7]} | {pos[8]} |')
+    print(separador)
+# Assumindo que REPOSITORIO_JOGADAS seja sua variável global
+# Exemplo: REPOSITORIO_JOGADAS = [[1, 2, 3], [4, 'X', 6], [7, 8, 9]]
+
+def print_grade(matrix_das_jogadas):
+    quadro_de_numeros = []
+    for linha in matrix_das_jogadas: 
+        for elemento in linha: 
+            quadro_de_numeros.append(elemento) 
+    imprimir_grade_3x3(quadro_de_numeros) 
+
+def validador_de_jogada():
+    print('votoria')
+    # ele pega e checa se essa posição está preenchida e retorna um True
+    #Esse método vai receber um inteiro e tenho que levar em consideração que para acessar uma matriz
+    #eu preciso de dois inteiros, logo posso pensar que 1,4 e 7 são da coluna 1... enquanto 1, e 3 são da linha 1...
+
+def validador_de_VITORIA():         #esse tem que retornar um True se é uma vitoria... porqeu ai eu troco o jogo pra True
+    pass                            #Eu tenho que checar linha por linha, coluna por coluna e por final as duas diagonais
+
+#main():
+print_grade(repositório_jogadas)
+#jogo = True
+#while jogo == True:
+
+#    jogada = int(input('entre com um Número a ser preenchido no quadro'))
+
+
