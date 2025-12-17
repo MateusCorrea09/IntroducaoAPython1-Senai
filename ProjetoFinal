@@ -2,8 +2,7 @@
 #e colocar na grade, checar se a posição já está preenchida (se estiver deve ser perguntado novamente)
 #depois de uma jogada realizada pelo usuário o pc deve esoclher uma posição vaga para ser preenchida
 #após cada jogada deve ser checado se há uma conexão de 3 valores (use as combinações possíveis)
-import os #biblioteca para limpar o terminal
-repositório_jogadas = [[1,2,3],[4,5,6],[7,8,9]] #aqui eu guardo as entradas realizadas
+repositório_jogadas = [[1,4,7],[2,5,8],[3,6,9]] #aqui eu guardo as entradas realizadas
 #(pos[1],pos[2],pos[3],pos[4],pos[5],pos[6],pos[7],pos[8],pos[9])
 def imprimir_grade_3x3(pos):
     # Linha de separação horizontal
@@ -71,17 +70,37 @@ def validador_de_jogada(matrix_das_jogadas):
     else:
         return False
 def entradas_no_grid(entrada_jogador):
-    if entrada_jogador >= 1 or entrada_jogador <= 3:
-        entrada_jogador = entrada_jogador - 1
+    if 1 <= entrada_jogador <= 3:
+        entrada_jogador -= 1
         repositório_jogadas[entrada_jogador][0] = 'o'
-    if entrada_jogador >= 4 or entrada_jogador <= 6:
-        entrada_jogador = entrada_jogador - 1
+
+    elif 4 <= entrada_jogador <= 6:
+        entrada_jogador -= 4
         repositório_jogadas[entrada_jogador][1] = 'o'
-    if entrada_jogador >= 7 or entrada_jogador <= 9:
-        entrada_jogador = entrada_jogador - 1
+
+    elif 7 <= entrada_jogador <= 9:
+        entrada_jogador -= 7
         repositório_jogadas[entrada_jogador][2] = 'o'
+
 def mensagem_vitoria():         #esse tem que retornar um True se é uma vitoria... porqeu ai eu troco o jogo pra True
-    print('parabens!')          #Eu tenho que checar linha por linha, coluna por coluna e por final as duas diagonais
+    print("""
+██████╗░░█████╗░██████╗░░█████╗░██████╗░███████╗███╗░░██╗░██████╗██╗
+██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔════╝████╗░██║██╔════╝██║
+██████╔╝███████║██████╔╝███████║██████╦╝█████╗░░██╔██╗██║╚█████╗░██║
+██╔═══╝░██╔══██║██╔══██╗██╔══██║██╔══██╗██╔══╝░░██║╚████║░╚═══██╗╚═╝
+██║░░░░░██║░░██║██║░░██║██║░░██║██████╦╝███████╗██║░╚███║██████╔╝██╗
+╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░╚══════╝╚═╝░░╚══╝╚═════╝░╚═╝
+""")
+        #Eu tenho que checar linha por linha, coluna por coluna e por final as duas diagonais
+def mensagem_derrota():
+    print("""
+██████╗░███████╗██████╗░██████╗░░█████╗░████████╗░█████╗░
+██╔══██╗██╔════╝██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗
+██║░░██║█████╗░░██████╔╝██████╔╝██║░░██║░░░██║░░░███████║
+██║░░██║██╔══╝░░██╔══██╗██╔══██╗██║░░██║░░░██║░░░██╔══██║
+██████╔╝███████╗██║░░██║██║░░██║╚█████╔╝░░░██║░░░██║░░██║
+╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚═╝
+""")
 
 #main():
 print_grade(repositório_jogadas)
@@ -90,16 +109,20 @@ jogo = True
 while jogo == True:
     print_grade(repositório_jogadas)
     numero = int(input('Jogador! entre com um número disponivel: '))
-    if numero > 0 and numero <=9:
+    if numero > 0 and numero <=8:
         for i in repositório_jogadas:
             for j in repositório_jogadas:
                 if j != 'o' and j != 'x':
-                    repositório_jogadas(entradas_no_grid(numero))
+                    entradas_no_grid(numero)
                 else:
                     print('entre com uma alternativa válida!\n')
                     continue
     else:
         print('entre com uma alternativa válida!\n')
         continue
+    if validador_de_jogada(repositório_jogadas) == True:
+        jogo = False
+        print_grade(repositório_jogadas)
+        mensagem_vitoria()
    
    
